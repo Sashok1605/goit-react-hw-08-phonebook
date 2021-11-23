@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact } from '../../redux/contacts/contactsAction';
 import { getFilter } from '../../redux/contacts/contactsSelectors';
@@ -12,16 +13,21 @@ const Filter = () => {
   };
 
   return (
-    <label>
-      Find contacts by name
-      <input
-        className={s.filter}
-        type="text"
-        name="filter"
-        value={filter}
-        onChange={changeFilter}
-      />
-    </label>
+    <Form autoComplete="off" className={s.form}>
+      <Form.Group className="mb-3">
+        <Form.Label className={s.label}>
+          Find contacts by name
+          <Form.Control
+            placeholder="Enter the name you want to find"
+            type="text"
+            name="filter"
+            className={s.filter}
+            value={filter}
+            onChange={changeFilter}
+          />
+        </Form.Label>
+      </Form.Group>
+    </Form>
   );
 };
 

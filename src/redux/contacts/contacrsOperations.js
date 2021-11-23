@@ -13,8 +13,6 @@ import {
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-
-
 export const fetchContacts = () => dispatch => {
   dispatch(fetchContactsRequest());
   axios
@@ -23,7 +21,7 @@ export const fetchContacts = () => dispatch => {
     .catch(error => dispatch(fetchContactsError(error)));
 };
 
-export const addContact = (contact) => dispatch => {
+export const addContact = contact => dispatch => {
   dispatch(addContactRequest());
   axios
     .post('/contacts', contact)
@@ -41,5 +39,3 @@ export const deleteContacts = id => dispatch => {
     .then(() => dispatch(deleteContactsSuccess(id)))
     .catch(error => dispatch(deleteContactsError(error)));
 };
-
-

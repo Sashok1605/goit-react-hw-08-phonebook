@@ -1,5 +1,4 @@
-import { Container } from "react-bootstrap";
-
-export default function Containers({ children }) {
-    return <Container >{children}</Container>;
-  }
+import s from './Container.module.css';
+export default function Container({ children }) {
+  return <div className={s.container}>{children}</div>;
+}

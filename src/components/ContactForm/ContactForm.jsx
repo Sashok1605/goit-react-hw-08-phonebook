@@ -3,6 +3,7 @@ import { addContact } from '../../redux/contacts/contacrsOperations';
 import { useSelector, useDispatch } from 'react-redux';
 import s from './ContactForm.module.css';
 import { getContacts } from '../../redux/contacts/contactsSelectors';
+import { Button, Form } from 'react-bootstrap';
 
 const ContactForm = () => {
   const distatch = useDispatch();
@@ -43,42 +44,49 @@ const ContactForm = () => {
 
     if (findByName(name) && findByNumber(number)) {
       alert(`${name} is already in contacts!`);
-    }
-    else {
+    } else {
       distatch(addContact({ name, number }));
     }
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit} className={s.form}>
-      <label>
-        Name
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
-          value={name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Number
-        <input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-          required
-          value={number}
-          onChange={handleChange}
-        />
-      </label>
-
-      <button type="submit">Add contact</button>
-    </form>
+    <Form onSubmit={handleSubmit} className={s.form}>
+      <Form.Group className="mb-3">
+        <Form.Label>
+          Name
+          <Form.Control
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+            required
+            value={name}
+            className={s.own}
+            
+            onChange={handleChange}
+          />
+        </Form.Label>
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>
+          Number
+          <Form.Control
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            required
+            value={number}
+            className={s.own}
+            onChange={handleChange}
+          />
+        </Form.Label>
+      </Form.Group>
+      <Button variant="warning" type="submit">
+        Add contact
+      </Button>
+    </Form>
   );
 };
 

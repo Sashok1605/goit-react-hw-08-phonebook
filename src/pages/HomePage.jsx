@@ -1,4 +1,6 @@
 import React from 'react';
+import { BsFillJournalBookmarkFill } from 'react-icons/bs';
+
 
 const styles = {
   container: {
@@ -11,16 +13,15 @@ const styles = {
     fontWeight: 500,
     fontSize: 48,
     textAlign: 'center',
+    color: 'green',
   },
 };
 
 const HomePage = () => (
   <div style={styles.container}>
     <h1 style={styles.title}>
-      Приветственная страница нашего сервиса{' '}
-      <span role="img" aria-label="Иконка приветствия">
-        💁‍♀️
-      </span>
+      Hello, I'm your Contacts Book{' '}
+      <BsFillJournalBookmarkFill />
     </h1>
   </div>
 );

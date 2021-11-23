@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { deleteContacts } from '../../redux/contacts/contacrsOperations';
 import { useDispatch } from 'react-redux';
 import s from './ContactListItem.module.css';
+import { Button } from 'react-bootstrap';
 
 const ContactListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -13,13 +14,14 @@ const ContactListItem = ({ name, number, id }) => {
         {' '}
         {name}: {number}
       </p>
-      <button
+      <Button
+        variant="danger"
         className={s.buttonDelete}
         type="button"
         onClick={() => onDeletContact(id)}
       >
         Delete
-      </button>
+      </Button>
     </li>
   );
   

@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactList from '../components/ContactList';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Filter from '../components/Filter';
 import '../App.css';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '../redux/contacts/contacrsOperations';
-import { Container } from 'react-bootstrap';
+import s from './pages.module.css';
+import Container from '../components/Container/Container';
 
 
 const App = () => {
@@ -18,9 +19,9 @@ const App = () => {
 
   return (
     <Container>
-      <h1>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
+      <h2 className={s.title}>Contacts</h2>
       <Filter />
       <ContactList />
     </Container>

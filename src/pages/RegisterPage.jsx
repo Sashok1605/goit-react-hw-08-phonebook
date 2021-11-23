@@ -2,17 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import styles from './pages.module.css';
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -43,12 +33,18 @@ export default function RegisterView() {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}  autoComplete="off" style={styles.form}>
-      <Form.Group className="mb-3">
-        <Form.Label style={styles.label}>
-          Name
-          <Form.Control placeholder="Enter your name" type="text" name="name" value={name} onChange={handleChange} />
-        </Form.Label>
+      <Form onSubmit={handleSubmit} autoComplete="off" className={styles.form}>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>
+            Name
+            <Form.Control
+              placeholder="Enter your name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </Form.Label>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -72,9 +68,10 @@ export default function RegisterView() {
           />
         </Form.Group>
 
-        <Button variant={'warning'} type="submit">Register</Button>
+        <Button variant="success" type="submit">
+          Register
+        </Button>
       </Form>
     </div>
   );
 }
-
