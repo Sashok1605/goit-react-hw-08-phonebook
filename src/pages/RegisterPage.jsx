@@ -46,7 +46,7 @@ export default function RegisterView() {
             />
           </Form.Label>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -57,7 +57,7 @@ export default function RegisterView() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" >
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
